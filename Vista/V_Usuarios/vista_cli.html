@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido Cliente</title>
+    <link rel="stylesheet" href="est_adm.css">
+</head>
+<body>
+    <header>
+            <img src="../Imagenes/OIG1.jfif" alt="Imagen sin cargar" class="logo">
+            <h1>Cocinas y Diseños Arquitectonicos San Jose</h1>
+    </header>
+    <aside>
+        <nav>
+            <ul>
+                <li>
+                    <span>Usuarios</span>
+                    <ul class="sub-menu">
+                        <li onclick="mostrarSeccion('usuariosConsulta')">Mi perfil</li>
+                    </ul>
+                </li>
+                <li>
+                    <span>Productos</span>
+                    <ul class="sub-menu">
+                        <li onclick="mostrarSeccion('productosConsultar')">Ver productos</li>
+                    </ul>
+                </li>
+                <li>
+                    <span>Pedidos</span>
+                    <ul class="sub-menu">
+                        <li onclick="mostrarSeccion('pedidosRegistrar')">Hacer un pedido</li>
+                        <li onclick="mostrarSeccion('pedidosConsultar')">Mis pedidos</li>
+                    </ul>
+                </li>
+                <li>
+                    <span>Ventas</span>
+                    <ul class="sub-menu">
+                        <li onclick="mostrarSeccion('ventasConsultar')">Mis pedidos</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <section>
+        <!-- Contenido de usuarios mi perfil -->
+            <div id="usuariosConsulta" class="seccion" style="display: none;">
+                <h3>Tu usuario</h3>
+                <p>Si quieres modificar tus datos, lo puedes hacer dando click en Actualizar</p>
+                <a href="../../Controladores/Usuario/Act_Usuario.php?Actualizar">
+                    <button>Actualizar</button>
+                </a>
+            </div>
+        <!-- Contenido de ver todos los productos -->
+            <div id="productosConsultar" class="seccion" style="display: none;">
+                <h3>Aqui tienes todos los productos</h3>
+                <p>Para hacer un pedido solo dale en la opcion de pedir</p>
+            </div>
+        <!-- Contendio de hacer un pedido -->
+            <div id="pedidosRegistrar" class="seccion" style="display: none;">
+                <h3>Genial puedes hacer tu pedido aqui</h3>
+                <p>Solo registra los datos necesarios y ya podras hacer tu pedido</p>
+                <form action="../../Controladores/Pedido/Reg_ped.php" method="post">
+                    <!-- El id del pedido se genera automaticamente -->
+                    <label for="espe">Espeficicaciones: </label>
+                    <p>Es decir que material, color, altura, ancho, largo, etc. Quiere usted.</p>
+                    <input type="text" name="Espe_cli" id="espe">
+                    <label for="abono">Abono:</label>
+                    <p>Cuanto quisiera abonar, es decir cuando dinero va a dar para comenzar con el producto, puede ser 0</p>
+                    <input type="number" name="abo_cli" id="abono">
+                    <!-- El valor de la fecha de solicitud se dara en la base de datos -->
+                    <label for="fec_entre">Fecha de entrega:</label>
+                    <p>En que fecha quiere que le demos el pedido aproximadamente</p>
+                    <input type="date" name="fec_ent_cli" id="fec_entre">
+                    <!-- El estado no se muestra aqui -->
+                    <!-- El codigo de usuario se utiliza desde aqui -->
+                    <button type="submit">Hacer pedido</button>
+                </form>
+            </div>
+        <!-- Contendio de ver mis pedidos -->
+            <div id="pedidosConsultar" class="seccion" style="display: none;">
+                <h3>Mira estos son los pedidos que haz echo</h3>
+                <p>Si quieres ver detalles de cada pedido haz click en detalles</p>
+            </div>
+        <!-- Cintendio de ver mis ventas -->
+            <div id="ventasConsultar" class="seccion" style="display: none;">
+                <h3>Mira estas son tus ventas</h3>
+                <p>Si quieres ver detalles de cada venta haz click en detalles</p>
+            </div>
+    </section>
+    <footer>
+        <div>
+            <h4>Acerca de Nosotros</h4>
+            <p>Somos una empresa dedicada a ofrcer el servicio de creacion de muebles para interiores
+            y mejorar tu hogar
+            </p>
+        </div>
+        <div>
+            <h4>Contacto Empresa</h4>
+            <p>Teléfono: +123456789</p>
+            <p>Email: contacto@empresa.com</p>
+        </div>
+        <div>
+            <h4>Contacto Programadores</h4>
+            <p>Teléfonos: +57 3125565319, +57 3106803139</p>
+            <p>Email: codecas@gmail.com</p>
+            <br>
+        </div>
+        <div>
+            <h4>Redes Sociales</h4>
+            <p>
+                <a href="#">Facebook</a> | 
+                <a href="#">Twitter</a> | 
+                <a href="#">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+    <script src="com_adm.js"></script>
+</body>
+</html>
