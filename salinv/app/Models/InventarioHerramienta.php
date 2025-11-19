@@ -31,6 +31,10 @@ class InventarioHerramienta extends Model
      * @var array<int, string>
      */
     protected $fillable = ['idHerramienta', 'nombre', 'tipoHerramienta', 'cantidad', 'imagenHerramienta', 'estado'];
+    protected $table = 'inventario_herramientas';
+    protected $primaryKey = 'idHerramienta';
+    public $incrementing = true;
+    protected $keyType = 'int';
 
 
     /**

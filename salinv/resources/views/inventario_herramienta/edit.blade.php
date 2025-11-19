@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ __('Update') }} Inventario Material
+    {{ __('Update') }} Inventario Herramienta
 @endsection
 
 @section('content')
@@ -11,14 +11,14 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Inventario Material</span>
+                        <span class="card-title">{{ __('Update') }} Inventario Herramienta</span>
                     </div>
                     <div class="card-body bg-white">
-                        <form method="POST" action="{{ route('inventario-materials.update', $inventarioMaterial->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('inventario_herramienta.update', $inventario_herramienta->idHerramienta) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('inventario-material.form')
+                            @include('inventario_herramienta.form')
 
                         </form>
                     </div>

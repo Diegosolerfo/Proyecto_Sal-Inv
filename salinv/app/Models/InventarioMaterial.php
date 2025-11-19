@@ -35,7 +35,10 @@ class InventarioMaterial extends Model
      * @var array<int, string>
      */
     protected $fillable = ['idMaterial', 'nombre', 'descripcion', 'cantidad', 'fechaCompra', 'valorUnidad', 'valorTotal', 'imagenMaterial', 'fechaRegistro', 'estado'];
-
+    protected $table = 'inventario_material';
+    protected $primaryKey = 'idMaterial';
+    public $incrementing = true;
+    protected $keyType = 'int';
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

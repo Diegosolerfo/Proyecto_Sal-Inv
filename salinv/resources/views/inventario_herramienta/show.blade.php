@@ -14,7 +14,7 @@
                             <span class="card-title">{{ __('Show') }} Inventario Herramienta</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('inventario-herramientas.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary btn-sm" href="{{ route('inventario_herramienta.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 

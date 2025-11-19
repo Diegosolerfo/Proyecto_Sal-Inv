@@ -16,10 +16,10 @@ class InventarioMaterialController extends Controller
      */
     public function index(Request $request): View
     {
-        $inventarioMaterials = InventarioMaterial::paginate();
+        $inventario_material = InventarioMaterial::paginate();
 
-        return view('inventario-material.index', compact('inventarioMaterials'))
-            ->with('i', ($request->input('page', 1) - 1) * $inventarioMaterials->perPage());
+        return view('inventario_material.index', compact('inventario_material'))
+            ->with('i', ($request->input('page', 1) - 1) * $inventario_material->perPage());
     }
 
     /**
@@ -27,9 +27,9 @@ class InventarioMaterialController extends Controller
      */
     public function create(): View
     {
-        $inventarioMaterial = new InventarioMaterial();
+        $inventario_material = new InventarioMaterial();
 
-        return view('inventario-material.create', compact('inventarioMaterial'));
+        return view('inventario_material.create', compact('inventario_material'));
     }
 
     /**
@@ -39,7 +39,7 @@ class InventarioMaterialController extends Controller
     {
         InventarioMaterial::create($request->validated());
 
-        return Redirect::route('inventario-materials.index')
+        return Redirect::route('inventario_material.index')
             ->with('success', 'InventarioMaterial created successfully.');
     }
 
@@ -48,9 +48,9 @@ class InventarioMaterialController extends Controller
      */
     public function show($id): View
     {
-        $inventarioMaterial = InventarioMaterial::find($id);
+        $inventario_material = InventarioMaterial::find($id);
 
-        return view('inventario-material.show', compact('inventarioMaterial'));
+        return view('inventario_material.show', compact('inventario_material'));
     }
 
     /**
@@ -58,9 +58,9 @@ class InventarioMaterialController extends Controller
      */
     public function edit($id): View
     {
-        $inventarioMaterial = InventarioMaterial::find($id);
+        $inventario_material = InventarioMaterial::find($id);
 
-        return view('inventario-material.edit', compact('inventarioMaterial'));
+        return view('inventario_material.edit', compact('inventario_material'));
     }
 
     /**
@@ -70,7 +70,7 @@ class InventarioMaterialController extends Controller
     {
         $inventarioMaterial->update($request->validated());
 
-        return Redirect::route('inventario-materials.index')
+        return Redirect::route('inventario_material.index')
             ->with('success', 'InventarioMaterial updated successfully');
     }
 
@@ -78,7 +78,7 @@ class InventarioMaterialController extends Controller
     {
         InventarioMaterial::find($id)->delete();
 
-        return Redirect::route('inventario-materials.index')
+        return Redirect::route('inventario_material.index')
             ->with('success', 'InventarioMaterial deleted successfully');
     }
 }

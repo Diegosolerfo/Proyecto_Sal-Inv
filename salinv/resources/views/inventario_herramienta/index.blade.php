@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Inventario Materials
+    Inventario Herramientas
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Inventario Materials') }}
+                                {{ __('Inventario Herramientas') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('inventario-materials.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('inventario_herramienta.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,40 +36,31 @@
                                     <tr>
                                         <th>No</th>
                                         
-									<th >Idmaterial</th>
+									<th >Idherramienta</th>
 									<th >Nombre</th>
-									<th >Descripcion</th>
+									<th >Tipoherramienta</th>
 									<th >Cantidad</th>
-									<th >Fechacompra</th>
-									<th >Valorunidad</th>
-									<th >Valortotal</th>
-									<th >Imagenmaterial</th>
-									<th >Fecharegistro</th>
+									<th >Imagenherramienta</th>
 									<th >Estado</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($inventarioMaterials as $inventarioMaterial)
+                                    @foreach ($inventario_herramientas as $inventario_herramienta)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-										<td >{{ $inventarioMaterial->idMaterial }}</td>
-										<td >{{ $inventarioMaterial->nombre }}</td>
-										<td >{{ $inventarioMaterial->descripcion }}</td>
-										<td >{{ $inventarioMaterial->cantidad }}</td>
-										<td >{{ $inventarioMaterial->fechaCompra }}</td>
-										<td >{{ $inventarioMaterial->valorUnidad }}</td>
-										<td >{{ $inventarioMaterial->valorTotal }}</td>
-										<td >{{ $inventarioMaterial->imagenMaterial }}</td>
-										<td >{{ $inventarioMaterial->fechaRegistro }}</td>
-										<td >{{ $inventarioMaterial->estado }}</td>
-
+										<td >{{ $inventario_herramienta->idHerramienta }}</td>
+										<td >{{ $inventario_herramienta->nombre }}</td>
+										<td >{{ $inventario_herramienta->tipoHerramienta }}</td>
+										<td >{{ $inventario_herramienta->cantidad }}</td>
+										<td >{{ $inventario_herramienta->imagenHerramienta }}</td>
+										<td >{{ $inventario_herramienta->estado }}</td>
                                             <td>
-                                                <form action="{{ route('inventario-materials.destroy', $inventarioMaterial->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('inventario-materials.show', $inventarioMaterial->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('inventario-materials.edit', $inventarioMaterial->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('inventario_herramienta.destroy', $inventario_herramienta->idHerramienta) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('inventario_herramienta.show', $inventario_herramienta->idHerramienta) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('inventario_herramienta.edit', $inventario_herramienta->idHerramienta) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
@@ -82,7 +73,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $inventarioMaterials->withQueryString()->links() !!}
+                {!! $inventario_herramientas->withQueryString()->links() !!}
             </div>
         </div>
     </div>

@@ -16,10 +16,9 @@ class InventarioHerramientaController extends Controller
      */
     public function index(Request $request): View
     {
-        $inventarioHerramientas = InventarioHerramienta::paginate();
-
-        return view('inventario-herramienta.index', compact('inventarioHerramientas'))
-            ->with('i', ($request->input('page', 1) - 1) * $inventarioHerramientas->perPage());
+        $inventario_herramientas = InventarioHerramienta::paginate();
+        return view('inventario_herramienta.index', compact('inventario_herramientas'))
+            ->with('i', ($request->input('page', 1) - 1) * $inventario_herramientas->perPage());
     }
 
     /**
@@ -27,9 +26,9 @@ class InventarioHerramientaController extends Controller
      */
     public function create(): View
     {
-        $inventarioHerramienta = new InventarioHerramienta();
+        $inventario_herramienta = new InventarioHerramienta();
 
-        return view('inventario-herramienta.create', compact('inventarioHerramienta'));
+        return view('inventario_herramienta.create', compact('inventario_herramienta'));
     }
 
     /**
@@ -39,7 +38,7 @@ class InventarioHerramientaController extends Controller
     {
         InventarioHerramienta::create($request->validated());
 
-        return Redirect::route('inventario-herramientas.index')
+        return Redirect::route('inventario_herramienta.index')
             ->with('success', 'InventarioHerramienta created successfully.');
     }
 
@@ -48,9 +47,9 @@ class InventarioHerramientaController extends Controller
      */
     public function show($id): View
     {
-        $inventarioHerramienta = InventarioHerramienta::find($id);
+        $inventario_herramienta = InventarioHerramienta::find($id);
 
-        return view('inventario-herramienta.show', compact('inventarioHerramienta'));
+        return view('inventario_herramienta.show', compact('inventario_herramienta'));
     }
 
     /**
@@ -58,19 +57,21 @@ class InventarioHerramientaController extends Controller
      */
     public function edit($id): View
     {
-        $inventarioHerramienta = InventarioHerramienta::find($id);
+        $inventario_herramienta = InventarioHerramienta::find($id);
 
-        return view('inventario-herramienta.edit', compact('inventarioHerramienta'));
+        return view('inventario_herramienta.edit', compact('inventario_herramienta'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(InventarioHerramientaRequest $request, InventarioHerramienta $inventarioHerramienta): RedirectResponse
+    public function update(InventarioHerramientaRequest $request, $id): RedirectResponse
     {
-        $inventarioHerramienta->update($request->validated());
+        $inventario_herramienta = InventarioHerramienta::find($id);
 
-        return Redirect::route('inventario-herramientas.index')
+        $inventario_herramienta->update($request->validated());
+
+        return Redirect::route('inventario_herramienta.index')
             ->with('success', 'InventarioHerramienta updated successfully');
     }
 
@@ -78,7 +79,7 @@ class InventarioHerramientaController extends Controller
     {
         InventarioHerramienta::find($id)->delete();
 
-        return Redirect::route('inventario-herramientas.index')
+        return Redirect::route('inventario_herramienta.index')
             ->with('success', 'InventarioHerramienta deleted successfully');
     }
 }

@@ -14,10 +14,10 @@
                         <span class="card-title">{{ __('Create') }} Inventario Herramienta</span>
                     </div>
                     <div class="card-body bg-white">
-                        <form method="POST" action="{{ route('inventario-herramientas.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('inventario_herramienta.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
-                            @include('inventario-herramienta.form')
+                            @include('inventario_herramienta.form')
 
                         </form>
                     </div>
